@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
-import { IMovies } from './movie-interface';
+import { IMovieResults } from './movie-interface';
 import 'rxjs/Operator/map';
 
 @Injectable()
@@ -12,9 +12,9 @@ export class MovieService {
 
     }
 
-    search(parameters: string): Observable<IMovies[]> {
+    search(parameters: string): Observable<IMovieResults> {
         return this._http.get(`${this._URL}${parameters}`)
-            .map((response: Response) => <IMovies[]>response.json().Search)
+            .map((response: Response) => <IMovieResults>response.json())
             .catch(this.handleError)
     }
 

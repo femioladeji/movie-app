@@ -1,0 +1,8 @@
+{
+    "manifest_version": 2,
+    "name": "Movie App",
+    "short_name": "Get quick info about a movie & schedule for watching",
+    "description": "This extension helps you check",
+    "version": "1.0.0",
+    "author": "Oladeji Femi @femidotexe"
+}

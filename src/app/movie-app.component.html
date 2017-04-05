@@ -6,7 +6,7 @@
   <form class="col s12">
     <div class="row eachFieldRow">
       <div class="input-field col s8 offset-s2">
-        <input id="movie_title" type="text" [(ngModel)]='movieTitle' name="movie_title" class="validate movie_title">
+        <input id="movie_title" type="text" [(ngModel)]='searchQuery' name="movie_title" class="validate movie_title">
         <label for="movie_title">Movie Title</label>
       </div>
     </div>
@@ -16,4 +16,34 @@
       </div>
     </div>
   </form>
+
+  <div id="result-list" *ngIf = 'movieResults && movieResults.length'>
+    <p class="center-align">Showing Results for "{{searchedQuery}}"</p>
+    <div class="row">
+      <p class="center-align">Total Results: <strong>{{totalResults}}</strong></p>
+      <div class="col s10 offset-s1 each-movie" *ngFor = 'let aMovie of movieResults'>
+        <div class="col s8">
+          <h5>{{aMovie.Title}}</h5>
+          <span>Year: {{aMovie.Year}}</span><br/>
+          <span>Type: {{aMovie.Type}}</span>
+        </div>
+        <div class="col s4">
+          <img width="100%" src="{{aMovie.Poster}}"/>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <span>Page {{currentPage}} of {{totalPages}}</span>
+      <span>
+        <button *ngIf='currentPage>1' title="First" class="btn waves-effect waves-light" (click)='navigate("first")'><i class="material-icons">first_page</i></button>
+        <button *ngIf='currentPage>1' title="Previous" class="btn waves-effect waves-light" (click)='navigate("prev")'><i class="material-icons">navigate_before</i></button>
+        <button *ngIf='currentPage<totalPages' title="Next" class="btn waves-effect waves-light" (click)='navigate("next")'><i class="material-icons">navigate_next</i></button>
+        <button *ngIf='currentPage<totalPages' title="Last" class="btn waves-effect waves-light" (click)='navigate("last")'><i class="material-icons">last_page</i></button>
+      </span>
+    </div>
+  </div>
+
+  <div id="loader" *ngIf='loading'>
+    <div><img src="img/3.gif" /></div>
+  </div>
 </div>
