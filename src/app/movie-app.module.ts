@@ -4,15 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MovieAppComponent } from './movie-app.component';
+import { MovieList } from './movie-list.component';
+import { MovieDetail } from './movie-detail.component';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot([
+            { path: '', component: MovieList },
+            { path: 'movie/:id', component: MovieDetail }
+        ])
     ],
     declarations: [
-        MovieAppComponent
+        MovieAppComponent,
+        MovieList,
+        MovieDetail
     ],
     bootstrap: [ MovieAppComponent ]
 })
