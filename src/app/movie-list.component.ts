@@ -62,7 +62,6 @@ export class MovieList {
   }
 
   viewMovie(movieId: string): void {
-      console.log('a movie clicked', movieId);
       this._router.navigate(['/movie', movieId]);
   }
 }
