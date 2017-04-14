@@ -18,11 +18,21 @@ export class MovieDetail implements OnInit {
 
     }
 
+    formatTime(time: string): string {
+        const inMinutes: number = parseInt(time);
+        const hours: number = Math.floor(inMinutes/60);
+        // const hourText = ()
+        const minutes: number = inMinutes % 60;
+        let returnText: string = (hours >= 1) ? hours + ((hours === 1) ? ' hour ' : ' hours ') : '';
+        returnText += `${minutes} minutes`;
+        return returnText;
+    }
+
     ngOnInit(): void {
         // make request to get full movie info
         this.imdbid = this._activeRoute.snapshot.params['id'];
         console.log(this.imdbid);
-        this._movieService.getAMovie(`i=${this.imdbid}`)
+        this._movieService.getAMovie(`i=${this.imdbid}&plot=full`)
         .subscribe((theMovie) => {
             this.loading = false;
             console.log(theMovie);

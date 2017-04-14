@@ -3,3 +3,10 @@
   width:96px;
   height: 96px;
 }
+.movie-detail {
+  height: 500px;
+  overflow-y: scroll;
+}
+.movie-poster {
+  width: 100%;
+}
