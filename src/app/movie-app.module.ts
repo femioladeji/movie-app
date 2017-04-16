@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MovieAppComponent } from './movie-app.component';
-import { MovieList } from './movie-list.component';
-import { MovieDetail } from './movie-detail.component';
+import { MovieList } from './movie-list/movie-list.component';
+import { MovieDetail } from './movie-detail/movie-detail.component';
 
 @NgModule({
     imports: [

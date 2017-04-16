@@ -10,3 +10,12 @@
 .movie-poster {
   width: 100%;
 }
+.menu {
+  left: 400px;
+  top: 500px;
+  width: 60px;
+  height: 200px;
+}
+.fixed-action-btn ul {
+  bottom: 190px;
+}

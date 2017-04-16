@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OnInit } from '@angular/core';
-import { MovieService } from './movie-service';
-import { IAMovie } from './movie-interface';
+import { MovieService } from '../shared/movie-service';
+import { IAMovie } from '../shared/movie-interface';
 
 @Component({
     moduleId: module.id,

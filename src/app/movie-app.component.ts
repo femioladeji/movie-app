@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { MovieService } from './movie-service';
-import { IMovies, IMovieResults } from './movie-interface';
+import { MovieService } from './shared/movie-service';
 
 @Component({
   moduleId: module.id,
