@@ -5,7 +5,7 @@
     </a>
     <ul>
       <li><a class="btn-floating green" title="Favorite"><i class="material-icons">favorite</i></a></li>
-      <li><a class="btn-floating blue" title="Schedule"><i class="material-icons">timer</i></a></li>
+      <li><a [routerLink] = "['/schedule']" class="btn-floating blue" title="Schedule"><i class="material-icons">timer</i></a></li>
     </ul>
   </div>
   <h3 class="center-align">{{aMovie.Title}}</h3>
@@ -24,7 +24,7 @@
       </tr>
       <tr>
         <td>Length</td>
-        <td>{{formatTime(aMovie.Runtime)}}</td>
+        <td>{{aMovie.Runtime | timeTransformer}}</td>
       </tr>
       <tr>
         <td>Type</td>
