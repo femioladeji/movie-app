@@ -1,8 +1,16 @@
 {
-    "manifest_version": 2,
-    "name": "Movie App",
-    "short_name": "Get quick info about a movie & schedule for watching",
-    "description": "This extension helps you check",
-    "version": "1.0.0",
-    "author": "Oladeji Femi @femidotexe"
+  "manifest_version": 2,
+  "name"            : "Moviepedia",
+  "description"     : "AA chrome extension developed with angular2 that consumes omdb api to make movie search, scheduling and streaming a lot more fun",
+  "short_name"      : "moviepedia",
+  "version"         : "0.1",
+  "browser_action": {
+    "default_popup": "index.html",
+    "default_icon" : "img/logo.png"
+  },
+  "permissions": [
+    "debugger",
+    "storage"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
