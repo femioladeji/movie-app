@@ -7,6 +7,7 @@ import 'rxjs/Operator/map';
 @Injectable()
 export class MovieService {
     private _URL: string = 'http://www.omdbapi.com/?';
+    public movie: IAMovie;
 
     constructor(private _http: Http) {
 

@@ -1,0 +1,18 @@
+<h4 class="center-align">Add "{{movie.Title}}" to schedule</h4>
+<form class="col s12">
+  <div class="row eachFieldRow">
+    <div class="input-field col s8 offset-s2">
+      <input id="movie-date" type="date" [(ngModel)]='date' name="date" >
+    </div>
+  </div>
+  <div class="row eachFieldRow">
+    <div class="input-field col s8 offset-s2">
+      <input id="movie-time" type="time" [(ngModel)]='time' name="time">
+    </div>
+  </div>
+  <div class="row eachFieldRow">
+    <div class="input-field col s6 offset-s3">
+      <button (click)='addToSchedule()' class="btn waves-effect waves-light" type="submit">Add Schedule<i class="material-icons right">timer</i></button>
+    </div>
+  </div>
+</form>

@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
-import { SharedService } from '../shared/sharedService';
+import { MovieService } from '../shared/movie-service';
+import { IAMovie } from '../shared/movie-interface';
 
 @Component({
-    template: `
-        <h3>New Schedule</h3>
-    `,
-    providers: [SharedService]
+    moduleId: module.id,
+    templateUrl: 'add-schedule.html'
 })
 export class AddSchedule{
-    name: string;
+    movie: IAMovie;
+    date: string;
+    time: string;
     
-    constructor(private _service: SharedService) {
-        console.log('here');
-        this._service.scheduleEvent.subscribe((movie) => {
-            console.log(movie);
-        });
+    constructor(private _movieService: MovieService ) {
+        this.movie = this._movieService.movie;
+    }
+
+    addToSchedule() {
+        console.log(chrome.storage);
+        console.log(this.date, this.time);
     }
 }
