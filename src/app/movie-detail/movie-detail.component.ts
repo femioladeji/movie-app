@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../shared/movie-service';
 import { IAMovie } from '../shared/movie-interface';
 
@@ -27,12 +25,11 @@ export class MovieDetail implements OnInit {
         this._movieService.getAMovie(`i=${this.imdbid}&plot=full`)
         .subscribe((theMovie) => {
             this.loading = false;
-            console.log(theMovie);
             this.aMovie = theMovie
         }, (error) => {
             this.loading = false;
             console.log(error);
-        })
+        });
     }
 
     addSchedule() {
