@@ -1,0 +1,19 @@
+<h6 class="center-align">All Schedules</h6>
+<ul class="collapsible" data-collapsible="accordion" *ngIf="allScheduleDates.length">
+  <li *ngFor="let date of allScheduleDates">
+    <div class="collapsible-header">{{date}}</div>
+    <div class="collapsible-body">
+      <ul>
+        <li *ngFor="let eachMovie of allSchedules[date]">
+          <p>{{eachMovie.scheduleTime}} - {{eachMovie.title}}</p>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+<script type="text/javascript">
+  $(document).ready(function() {
+    console.log('here');
+    $('.collapsible').collapsible();
+  })
+</script>

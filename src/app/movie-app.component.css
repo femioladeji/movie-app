@@ -1,7 +1,23 @@
 #wrapper {
-  padding: 10px;
   width: 500px;
   border: 1px solid #ccc;
   min-height: 400px;
   max-height: 800px;
+}
+
+.footer-nav {
+  position: fixed;
+  height: 30px;
+  background: #efefef;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 0;
+}
+
+.footer-nav > div:hover {
+  background: #e0e0e0;
+}
+
+.footer-nav i {
+  margin-top: 3px;
 }
