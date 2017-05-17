@@ -1,42 +1,46 @@
-  <form class="col s12">
-    <div class="row eachFieldRow">
-      <div class="input-field col s8 offset-s2">
-        <input id="movie_title" type="text" [(ngModel)]='searchQuery' name="movie_title" class="validate movie_title">
-        <label for="movie_title">Movie Title</label>
-      </div>
+<div class="content">
+
+  <form class="search-form s12">
+    <div class="each-row">
+      <md-input-container>
+        <input id="movie_title" mdInput placeholder="Movie Title" type="text" [(ngModel)]='searchQuery' name="movie_title">
+      </md-input-container>
     </div>
-    <div class="row eachFieldRow">
-      <div class="input-field col s4 offset-s4">
-        <button (click)='searchMovies()' class="btn waves-effect waves-light" type="submit" name="search">Find<i class="material-icons right">search</i></button>
-      </div>
+    <div class="each-row">
+      <button class="search-movies" md-raised-button (click)='searchMovies()' name="search">Find <i class="material-icons right">search</i></button>
     </div>
   </form>
+
   <div id="result-list" *ngIf = 'movieResults && movieResults.length'>
     <p class="center-align">Showing Results for "{{searchedQuery}}"</p>
-    <div class="row">
+    <div class="movie-list">
       <p class="center-align">Total Results: <strong>{{totalResults}}</strong></p>
-      <div (click)='viewMovie(aMovie.imdbID)' class="col s10 offset-s1 each-movie" *ngFor = 'let aMovie of movieResults'>
-        <div class="col s8">
-          <h5>{{aMovie.Title}}</h5>
-          <span>Year: {{aMovie.Year}}</span><br/>
-          <span>Type: {{aMovie.Type}}</span>
+      <md-card class="each-movie" (click)='viewMovie(aMovie.imdbID)' *ngFor = 'let aMovie of movieResults'>
+        <md-card-header class="card-header">
+          <md-card-title><h5>{{aMovie.Title}}</h5></md-card-title>
+          <md-card-subtitle><span>Year: {{aMovie.Year}}</span><br/>
+            <span>Type: {{aMovie.Type}}</span></md-card-subtitle>
+        </md-card-header>
+        <div class="card-image">
+          <img  src="{{aMovie.Poster}}">
         </div>
-        <div class="col s4">
-          <img width="100%" src="{{aMovie.Poster}}"/>
-        </div>
-      </div>
+        <!--<md-card-actions class="actions">-->
+          <!--<button md-button>SCHEDULE</button>-->
+          <!--<button md-button>LIKE</button>-->
+        <!--</md-card-actions>-->
+      </md-card>
     </div>
     <div class="pagination">
       <span>Page {{currentPage}} of {{totalPages}}</span>
       <span>
-        <button *ngIf='currentPage>1' title="First" class="btn waves-effect waves-light" (click)='navigate("first")'><i class="material-icons">first_page</i></button>
-        <button *ngIf='currentPage>1' title="Previous" class="btn waves-effect waves-light" (click)='navigate("prev")'><i class="material-icons">navigate_before</i></button>
-        <button *ngIf='currentPage<totalPages' title="Next" class="btn waves-effect waves-light" (click)='navigate("next")'><i class="material-icons">navigate_next</i></button>
-        <button *ngIf='currentPage<totalPages' title="Last" class="btn waves-effect waves-light" (click)='navigate("last")'><i class="material-icons">last_page</i></button>
+        <button md-raised-button *ngIf='currentPage>1' title="First" class="btn waves-effect waves-light" (click)='navigate("first")'><i class="material-icons">first_page</i></button>
+        <button md-raised-button *ngIf='currentPage>1' title="Previous" class="btn waves-effect waves-light" (click)='navigate("prev")'><i class="material-icons">navigate_before</i></button>
+        <button md-raised-button *ngIf='currentPage<totalPages' title="Next" class="btn waves-effect waves-light" (click)='navigate("next")'><i class="material-icons">navigate_next</i></button>
+        <button md-raised-button *ngIf='currentPage<totalPages' title="Last" class="btn waves-effect waves-light" (click)='navigate("last")'><i class="material-icons">last_page</i></button>
       </span>
     </div>
   </div>
 
-  <div id="loader" *ngIf='loading'>
-    <div><img src="img/3.gif" /></div>
-  </div>
+  <div id="loader" *ngIf='loading'><img src="img/3.gif" /></div>
+
+</div>

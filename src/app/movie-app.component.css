@@ -1,6 +1,5 @@
 #wrapper {
-  width: 500px;
-  border: 1px solid #ccc;
+  width: 400px;
   min-height: 400px;
   max-height: 800px;
 }

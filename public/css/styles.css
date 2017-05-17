@@ -1,0 +1,31 @@
+.center-align {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-form {
+  width: 250px;
+}
+
+.each-row > md-input-container {
+  width: 100%;
+}
+
+.search-form .search-movies {
+  margin-left: 81px;
+}
+
+#loader {
+  width: 96px;
+  height: 96px;
+}
+
+.search-form, #loader {
+  margin: 20px auto;
+}

@@ -1,21 +1,31 @@
-#loader > div {
+#loader {
   margin: 20px auto;
-  width:96px;
+  width: 96px;
   height: 96px;
 }
+
 .movie-detail {
   height: 500px;
   overflow-y: scroll;
 }
+
+.movie-detail .card-detail {
+  width: 90%;
+  margin: auto;
+}
+
 .movie-poster {
   width: 100%;
+  margin-bottom: 20px;
 }
+
 .menu {
   left: 400px;
   top: 500px;
   width: 60px;
   height: 200px;
 }
+
 .fixed-action-btn ul {
   bottom: 190px;
 }
