@@ -29,6 +29,11 @@ form .col {
   background: #e8e8e8;
 }
 
+
+.search-form .search-movies {
+  margin-left: 81px;
+}
+
 .movie-list {
   width: 90%;
   margin: auto;

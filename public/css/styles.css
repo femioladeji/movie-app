@@ -9,7 +9,7 @@
   justify-content: center;
 }
 
-.search-form {
+.search-form, .schedule-form {
   width: 250px;
 }
 
@@ -17,15 +17,16 @@
   width: 100%;
 }
 
-.search-form .search-movies {
-  margin-left: 81px;
-}
-
 #loader {
   width: 96px;
   height: 96px;
 }
 
-.search-form, #loader {
+.search-form, #loader, .schedule-form {
   margin: 20px auto;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }

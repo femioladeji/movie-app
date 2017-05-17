@@ -20,12 +20,13 @@
 }
 
 .menu {
-  left: 400px;
-  top: 500px;
-  width: 60px;
-  height: 200px;
+  position: fixed;
+  left: 300px;
+  top: 520px;
+  z-index: 4;
+  background: #ccc;
 }
 
-.fixed-action-btn ul {
-  bottom: 190px;
+.menu-list {
+  width: 80px;
 }

@@ -4,7 +4,8 @@ import {IAMovie} from '../shared/movie-interface';
 
 @Component({
   moduleId: module.id,
-  templateUrl: 'add-schedule.html'
+  templateUrl: 'add-schedule.html',
+  styleUrls: ['add-schedule.css']
 })
 export class AddSchedule {
   movie: IAMovie;

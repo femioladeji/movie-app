@@ -1,4 +1,17 @@
 <div class="movie-detail" *ngIf='aMovie'>
+  <button md-icon-button [mdMenuTriggerFor]="menu" class="menu">
+    <i class="large material-icons">menu</i>
+  </button>
+  <md-menu #menu="mdMenu" class="menu-list">
+    <button md-menu-item>
+      <md-icon><i class="material-icons">favorite</i></md-icon>
+      <span>Like</span>
+    </button>
+    <button md-menu-item (click)='addSchedule()'>
+      <md-icon><i class="material-icons">timer</i></md-icon>
+      <span>Schedule</span>
+    </button>
+  </md-menu>
   <md-card class="card-detail">
     <md-card-header>
       <md-card-title><h4>{{aMovie.Title}}</h4></md-card-title>
