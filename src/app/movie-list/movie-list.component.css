@@ -11,15 +11,17 @@ form .col {
 }
 
 #result-list {
-  margin-top: 10px;
-  height: 500px;
+  margin: 10px auto 35px auto;
+  height: 350px;
   overflow-y: scroll;
 }
 
 .each-movie {
-  border-bottom: 1px solid #ccc;
+  display: flex;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .each-movie:hover {
@@ -27,8 +29,27 @@ form .col {
   background: #e8e8e8;
 }
 
-#loader > div {
-  margin: 20px auto;
-  width:96px;
-  height: 96px;
+
+.search-form .search-movies {
+  margin-left: 81px;
+}
+
+.movie-list {
+  width: 90%;
+  margin: auto;
+}
+
+.card-header {
+  width: 60%;
+}
+.card-image {
+  width: 40%;
+}
+
+.card-image img {
+  width: 100%;
+}
+
+.actions {
+  width: 100%;
 }

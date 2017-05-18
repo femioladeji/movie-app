@@ -1,54 +1,60 @@
-<div *ngIf='aMovie' class="movie-detail row">
-  <div class="fixed-action-btn menu">
-    <a class="btn-floating btn-large red">
-      <i class="large material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating green" title="Favorite"><i class="material-icons">favorite</i></a></li>
-      <li><a (click)='addSchedule()' class="btn-floating blue" title="Schedule"><i class="material-icons">timer</i></a></li>
-    </ul>
-  </div>
-  <h3 class="center-align">{{aMovie.Title}}</h3>
-  <div class="col s6 offset-s3">
-    <img class="movie-poster" src="{{aMovie.Poster}}" alt="{{aMovie.Title}}" title="{{aMovie.Title}}" />
-  </div>
-  <table>
-    <tbody>
-      <tr>
-        <td>Main Actors</td>
-        <td>{{aMovie.Actors}}</td>
-      </tr>
-      <tr>
-        <td>Genre</td>
-        <td>{{aMovie.Genre}}</td>
-      </tr>
-      <tr>
-        <td>Length</td>
-        <td>{{aMovie.Runtime | timeTransformer}}</td>
-      </tr>
-      <tr>
-        <td>Type</td>
-        <td>{{aMovie.Type}}</td>
-      </tr>
-      <tr>
-        <td>Released</td>
-        <td>{{aMovie.Released}}</td>
-      </tr>
-      <tr>
-        <td>Plot</td>
-        <td>{{aMovie.Plot}}</td>
-      </tr>
-      <tr>
-        <td>IMDB Rating</td>
-        <td>{{aMovie.imdbRating}}</td>
-      </tr>
-      <tr>
-        <td>Awards</td>
-        <td>{{aMovie.Awards}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="movie-detail" *ngIf='aMovie'>
+  <button md-icon-button [mdMenuTriggerFor]="menu" class="menu">
+    <i class="large material-icons">menu</i>
+  </button>
+  <md-menu #menu="mdMenu" class="menu-list">
+    <button md-menu-item>
+      <md-icon><i class="material-icons">favorite</i></md-icon>
+      <span>Like</span>
+    </button>
+    <button md-menu-item (click)='addSchedule()'>
+      <md-icon><i class="material-icons">timer</i></md-icon>
+      <span>Schedule</span>
+    </button>
+  </md-menu>
+  <md-card class="card-detail">
+    <md-card-header>
+      <md-card-title><h4>{{aMovie.Title}}</h4></md-card-title>
+    </md-card-header>
+    <img class="movie-poster" src="{{aMovie.Poster}}" alt="{{aMovie.Title}}" title="{{aMovie.Title}}"/>
+    <md-card-content>
+      <table cellpadding="5">
+        <tbody>
+        <tr>
+          <td>Main Actors</td>
+          <td>{{aMovie.Actors}}</td>
+        </tr>
+        <tr>
+          <td>Genre</td>
+          <td>{{aMovie.Genre}}</td>
+        </tr>
+        <tr>
+          <td>Length</td>
+          <td>{{aMovie.Runtime | timeTransformer}}</td>
+        </tr>
+        <tr>
+          <td>Type</td>
+          <td>{{aMovie.Type}}</td>
+        </tr>
+        <tr>
+          <td>Released</td>
+          <td>{{aMovie.Released}}</td>
+        </tr>
+        <tr>
+          <td>Plot</td>
+          <td>{{aMovie.Plot}}</td>
+        </tr>
+        <tr>
+          <td>IMDB Rating</td>
+          <td>{{aMovie.imdbRating}}</td>
+        </tr>
+        <tr>
+          <td>Awards</td>
+          <td>{{aMovie.Awards}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </md-card-content>
+  </md-card>
 </div>
-<div id="loader" *ngIf='loading'>
-  <div><img src="img/3.gif" /></div>
-</div>
+<div id="loader" *ngIf='loading'><img src="img/3.gif"/></div>

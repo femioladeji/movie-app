@@ -1,8 +1,11 @@
 <div id="wrapper">
-  <h3 class="center-align">{{ title }}</h3>
+  <h2 class="center-align">{{ title }}</h2>
 
-  <p>An extension that helps you search for movies and schedule it for watching</p>
+  <p class="center-align">An extension that helps you search for movies and schedule it for watching</p>
 
   <router-outlet></router-outlet>
-  
+  <div class="footer-nav">
+    <div class="center-align"><a [routerLink]="['/']"><i class="material-icons">home</i></a></div>
+    <div class="center-align"><a [routerLink]="['/view-schedule']"><i class="material-icons">schedule</i></a></div>
+  </div>
 </div>

@@ -1,0 +1,32 @@
+.center-align {
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-form, .schedule-form {
+  width: 250px;
+}
+
+.each-row > md-input-container {
+  width: 100%;
+}
+
+#loader {
+  width: 96px;
+  height: 96px;
+}
+
+.search-form, #loader, .schedule-form {
+  margin: 20px auto;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}

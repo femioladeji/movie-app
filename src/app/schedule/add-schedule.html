@@ -1,0 +1,22 @@
+<div class="content">
+  <h4 class="center-align">Add "{{movie.Title}}" to schedule</h4>
+  <form class="schedule-form">
+    <div class="each-row">
+      <md-input-container>
+        <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]='date' name="date">
+        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+      </md-input-container>
+      <md-datepicker #picker></md-datepicker>
+    </div>
+    <div class="each-row">
+      <md-input-container>
+        <input mdInput id="movie-time" type="time" [(ngModel)]='time' name="time">
+      </md-input-container>
+    </div>
+    <div class="each-row">
+      <button md-raised-button (click)='addToSchedule()' class="add-schedule" type="submit">Add Schedule<i class="material-icons right">timer</i></button>
+    </div>
+    <p class="center-align">{{message}}</p>
+  </form>
+</div>
+
