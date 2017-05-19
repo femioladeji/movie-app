@@ -3,10 +3,8 @@
   <form class="schedule-form">
     <div class="each-row">
       <md-input-container>
-        <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" [(ngModel)]='date' name="date">
-        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+        <input mdInput type="date" placeholder="Choose a date" [(ngModel)]='date' name="date">
       </md-input-container>
-      <md-datepicker #picker></md-datepicker>
     </div>
     <div class="each-row">
       <md-input-container>

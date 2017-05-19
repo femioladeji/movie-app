@@ -18,7 +18,6 @@ export class AddSchedule {
   }
 
   addToSchedule() {
-    console.log(this.date, this.time);
     // dates are used as the key, so to get movies in a day, you use the date as the key
     const detailsToSave = {
       title: this.movie.Title,
