@@ -14,7 +14,7 @@ export interface IMovieResults {
 }
 
 export interface IAMovie {
-  Actors: string
+  Actors: string;
   Awards: string;
   Country: string;
   Director: string;
@@ -22,8 +22,8 @@ export interface IAMovie {
   Language: string;
   Metascore: string;
   Plot: string;
-  Poster: string
-  Rated: string
+  Poster: string;
+  Rated: string;
   Released: string
   Runtime: string
   Title: string
@@ -34,4 +34,10 @@ export interface IAMovie {
   imdbRating: string;
   imdbVotes: string;
   totalSeasons: string;
+}
+
+export interface IDaySchedule {
+  title: string;
+  scheduleTime: string;
+  id: string;
 }

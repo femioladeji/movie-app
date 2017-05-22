@@ -9,10 +9,11 @@
   overflow-y: scroll;
 }
 
-.movie-detail .card-detail {
-  width: 90%;
-  margin: auto;
-}
+.movie-detail
+  .card-detail {
+    width: 90%;
+    margin: auto;
+  }
 
 .movie-poster {
   width: 100%;
@@ -21,12 +22,24 @@
 
 .menu {
   position: fixed;
-  left: 300px;
-  top: 520px;
+  left: 320px;
+  top: 450px;
   z-index: 4;
   background: #ccc;
 }
 
 .menu-list {
   width: 80px;
+}
+
+table.info td:nth-child(odd) {
+  width: 30%;
+}
+
+table.info td:nth-child(even), .movie-plot {
+  line-height: 20px;
+}
+
+.movie-plot {
+  text-align: justify;
 }

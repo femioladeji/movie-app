@@ -17,7 +17,8 @@ const packages: any = {
   '@angular/platform-browser-dynamic': {main: 'bundles/platform-browser-dynamic.umd.min.js'},
   '@angular/http' : {main: 'bundles/http.umd.min.js'},
   '@angular/animations': {main: 'bundles/animations.umd.js'},
-  '@angular/material': {main: 'bundles/material.umd.js'}
+  '@angular/material': {main: 'bundles/material.umd.js'},
+  'ngx-accordion': { 'main': 'index.js'}
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -61,6 +62,7 @@ System.config({
     '@angular/platform-browser/animations':
       'vendor/@angular/platform-browser/bundles/platform-browser-animations.umd.js',
     '@angular': 'vendor/@angular',
+    'ngx-accordion': 'vendor/ngx-accordion',
     'rxjs': 'vendor/rxjs',
     'main': 'main.js'
   },

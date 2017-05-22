@@ -18,7 +18,8 @@
     </md-card-header>
     <img class="movie-poster" src="{{aMovie.Poster}}" alt="{{aMovie.Title}}" title="{{aMovie.Title}}"/>
     <md-card-content>
-      <table cellpadding="5">
+      <p class="movie-plot">{{aMovie.Plot}}</p>
+      <table cellpadding="5" cellspacing="5" class="info">
         <tbody>
         <tr>
           <td>Main Actors</td>
@@ -41,12 +42,8 @@
           <td>{{aMovie.Released}}</td>
         </tr>
         <tr>
-          <td>Plot</td>
-          <td>{{aMovie.Plot}}</td>
-        </tr>
-        <tr>
           <td>IMDB Rating</td>
-          <td>{{aMovie.imdbRating}}</td>
+          <td><rating [value]="aMovie.imdbRating" [max]="10"></rating></td>
         </tr>
         <tr>
           <td>Awards</td>
