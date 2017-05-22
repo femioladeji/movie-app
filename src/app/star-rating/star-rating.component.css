@@ -1,0 +1,9 @@
+.star {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.star-container {
+  overflow: hidden;
+}

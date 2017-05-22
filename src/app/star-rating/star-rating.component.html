@@ -1,0 +1,5 @@
+<div class="star-container" [style.width.px]="width" [title]="value">
+  <div [style.width.px]="fullWidth">
+    <i *ngFor = 'let each of displayStars()' class="material-icons star">star_rate</i>
+  </div>
+</div>
