@@ -44,6 +44,7 @@ export class MovieService {
   }
 
   setAlarm(): void {
+    console.log('here');
     this.getTodaysMovies().then((forToday: IDaySchedule[]) => {
       // sort the movie in descending order and pick the closest one to the current time;
       forToday.sort((a, b) => {

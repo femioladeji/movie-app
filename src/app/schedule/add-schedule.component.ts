@@ -31,7 +31,15 @@ export class AddSchedule {
       } else {
         allSchedules[this.date] = [...data['movie-app-schedules'][this.date], detailsToSave];
       }
-      chrome.storage.local.set({'movie-app-schedules': allSchedules});
+      chrome.storage.local.set({'movie-app-schedules': allSchedules}, () => {
+        let currentMoment = new Date();
+        let currentDate =
+          `${currentMoment.getFullYear()}-${this._movieService.formatMonth(currentMoment.getMonth())}-${currentMoment.getDate()}`;
+        if(this.date === currentDate) {
+          console.log('today');
+          this._movieService.setAlarm();
+        }
+      });
     });
     this.showConfirmation();
   }
