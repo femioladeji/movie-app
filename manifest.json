@@ -1,12 +1,16 @@
 {
   "manifest_version": 2,
   "name"            : "Moviepedia",
-  "description"     : "AA chrome extension developed with angular2 that consumes omdb api to make movie search, scheduling and streaming a lot more fun",
+  "description"     : "A chrome extension developed with angular2 that consumes omdb api to make movie search, scheduling and streaming a lot more fun",
   "short_name"      : "moviepedia",
   "version"         : "0.1",
   "browser_action": {
     "default_popup": "index.html",
     "default_icon" : "img/logo.png"
+  },
+  "background": {
+    "scripts": ["js/notifications.js"],
+    "persistent": false
   },
   "permissions": [
     "alarms",
