@@ -16,6 +16,5 @@ export class MovieAppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this._movieService.setAlarm();
   }
 }

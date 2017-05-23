@@ -43,27 +43,9 @@ export class MovieService {
     chrome.alarms.clear('movie-alarm');
   }
 
-  setAlarm(): void {
-    console.log('here');
-    this.getTodaysMovies().then((forToday: IDaySchedule[]) => {
-      // sort the movie in descending order and pick the closest one to the current time;
-      forToday.sort((a, b) => {
-        return (a.scheduleTime > b.scheduleTime) ? 1 : -1;
-      });
-      let currentDate = new Date();
-      forToday.some((eachSchedule) => {
-        let scheduleTimeInfo = eachSchedule.scheduleTime.split(':');
-        let movieMoment = new Date(currentDate.getFullYear(),
-          currentDate.getMonth(), currentDate.getDate(),
-          parseInt(scheduleTimeInfo[0]), parseInt(scheduleTimeInfo[1])).getTime();
-        let currentMoment = currentDate.getTime();
-        if(movieMoment > currentMoment) {
-          chrome.alarms.create('movie-alarm', { when: movieMoment });
-          this.setNextMovie(eachSchedule);
-          return movieMoment > currentMoment;
-        }
-      });
-    });
+  setAlarm(alarmDetails): void {
+    const movieMoment = new Date(`${alarmDetails.date}T${alarmDetails.time}`).getTime();
+    chrome.alarms.create(`movie-alarm-${movieMoment}@#${alarmDetails.title}@#${alarmDetails.imdb}`, { when: movieMoment });
   }
 
   getTodaysMovies() {
