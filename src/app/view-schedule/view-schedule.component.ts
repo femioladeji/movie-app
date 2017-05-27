@@ -16,8 +16,13 @@ export class ViewSchedule implements OnInit {
 
   ngOnInit(): void {
     this._movieService.getAllSchedules().subscribe(schedules => {
-      this.allScheduleDates = Object.keys(schedules);
-      this.allSchedules = schedules;
+      try {
+        this.allScheduleDates = Object.keys(schedules);
+        this.allSchedules = schedules;
+      } catch (err) {
+        this.allScheduleDates = [];
+        this.allSchedules = schedules;
+      }
     });
   }
 

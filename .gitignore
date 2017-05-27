@@ -27,3 +27,6 @@ testem.log
 
 #System Files
 .DS_Store
+
+# files
+src/app/shared/secret.ts
