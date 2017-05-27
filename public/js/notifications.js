@@ -1,4 +1,10 @@
 let notificationId, imdbId;
+
+function playNotificationSound() {
+  let notify = new Audio('audio/notification.ogg');
+  notify.play();
+}
+
 chrome.alarms.onAlarm.addListener(data => {
   console.log(data);
   if (data.name.includes('movie-alarm')) {
@@ -15,6 +21,7 @@ chrome.alarms.onAlarm.addListener(data => {
       }]
       }, (id) => {
         notificationId = id;
+        playNotificationSound();
       });
   }
 });
