@@ -4,7 +4,7 @@ import { MovieService } from '../shared/movie-service';
 @Component({
   moduleId: module.id,
   templateUrl: './view-schedule.component.html',
-  styles: ['./view-schedule.component.css'],
+  styleUrls: ['./view-schedule.component.css'],
   providers: [MovieService]
 })
 export class ViewSchedule implements OnInit {

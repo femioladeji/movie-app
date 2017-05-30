@@ -10,9 +10,10 @@
             <p md-line> {{allSchedules[aDate].length+' movies'}} </p>
           </md-list-item>
         </accordion-heading>
-        <md-list-item *ngFor="let aMovie of allSchedules[aDate]">
+        <md-list-item *ngFor="let aMovie of allSchedules[aDate]" class="each-schedule">
           <h4 md-line>{{aMovie.title}}</h4>
           <p md-line> {{aMovie.scheduleTime}}</p>
+          <clock [time]="aMovie.scheduleTime" [radius]="20"></clock>
         </md-list-item>
         <md-divider></md-divider>
       </accordion-group>
