@@ -11,6 +11,7 @@ export class AddSchedule {
   movie: IAMovie;
   date: string;
   time: string;
+  link: string;
   message: string;
 
   constructor(private _movieService: MovieService) {
@@ -22,6 +23,7 @@ export class AddSchedule {
     const detailsToSave = {
       title: this.movie.Title,
       scheduleTime: this.time,
+      link: this.link,
       id: this.movie.imdbID
     };
     chrome.storage.local.get((data) => {
@@ -32,12 +34,8 @@ export class AddSchedule {
         allSchedules[this.date] = [...data['movie-app-schedules'][this.date], detailsToSave];
       }
       chrome.storage.local.set({'movie-app-schedules': allSchedules}, () => {
-        this._movieService.setAlarm({
-          title: this.movie.Title,
-          imdb: this.movie.imdbID,
-          time: this.time,
-          date: this.date
-        });
+        detailsToSave['date'] = this.date;
+        this._movieService.setAlarm(detailsToSave);
       });
     });
     this.showConfirmation();

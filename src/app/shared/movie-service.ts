@@ -44,8 +44,10 @@ export class MovieService {
   }
 
   setAlarm(alarmDetails): void {
-    const movieMoment = new Date(`${alarmDetails.date}T${alarmDetails.time}`).getTime();
-    chrome.alarms.create(`movie-alarm-${movieMoment}@#${alarmDetails.title}@#${alarmDetails.imdb}`, { when: movieMoment });
+    const { date, scheduleTime, id, title, link } = alarmDetails;
+    const movieMoment = new Date(`${date}T${scheduleTime}`).getTime();
+    chrome.alarms.create(`movie-alarm-${movieMoment}@#${title}@#${link}@#${id}`,
+      { when: movieMoment });
   }
 
   getTodaysMovies() {
