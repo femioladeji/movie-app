@@ -44,8 +44,10 @@ export class MovieService {
   }
 
   setAlarm(alarmDetails): void {
-    const movieMoment = new Date(`${alarmDetails.date}T${alarmDetails.time}`).getTime();
-    chrome.alarms.create(`movie-alarm-${movieMoment}@#${alarmDetails.title}@#${alarmDetails.imdb}`, { when: movieMoment });
+    const { date, scheduleTime, id, title, link } = alarmDetails;
+    const movieMoment = new Date(`${date}T${scheduleTime}`).getTime();
+    chrome.alarms.create(`movie-alarm-${movieMoment}@#${title}@#${link}@#${id}`,
+      { when: movieMoment });
   }
 
   getTodaysMovies() {
@@ -67,5 +69,21 @@ export class MovieService {
 
   setNextMovie(aMovieSchedule: IDaySchedule): void {
     chrome.storage.local.set({nextMovie: aMovieSchedule});
+  }
+
+  getTodaysDate(): string {
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let month = mm.toString();
+    let date = dd.toString();
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+      date = `0${dd}`;
+    }
+    if ( mm < 10) {
+      month = `0${mm}`;
+    }
+    return `${yyyy}-${month}-${date}`;
   }
 }

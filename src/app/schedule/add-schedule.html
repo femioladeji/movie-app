@@ -8,7 +8,12 @@
     </div>
     <div class="each-row">
       <md-input-container>
-        <input mdInput id="movie-time" type="time" [(ngModel)]='time' name="time">
+        <input mdInput id="movie-time" type="time" placeholder="Choose a time" [(ngModel)]='time' name="time">
+      </md-input-container>
+    </div>
+    <div class="each-row">
+      <md-input-container>
+        <input mdInput id="link" type="text" [(ngModel)]='link' placeholder="Add link(optional)" name="link">
       </md-input-container>
     </div>
     <div class="each-row">

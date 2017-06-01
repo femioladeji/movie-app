@@ -4,7 +4,7 @@ import { MovieService } from '../shared/movie-service';
 @Component({
   moduleId: module.id,
   templateUrl: './view-schedule.component.html',
-  styles: ['./view-schedule.component.css'],
+  styleUrls: ['./view-schedule.component.css'],
   providers: [MovieService]
 })
 export class ViewSchedule implements OnInit {
@@ -15,9 +15,12 @@ export class ViewSchedule implements OnInit {
   constructor(private _movieService: MovieService) {}
 
   ngOnInit(): void {
+    const today = this._movieService.getTodaysDate();
     this._movieService.getAllSchedules().subscribe(schedules => {
       try {
-        this.allScheduleDates = Object.keys(schedules);
+        this.allScheduleDates = Object.keys(schedules).filter((each) =>
+          each >= today
+        );
         this.allSchedules = schedules;
       } catch (err) {
         this.allScheduleDates = [];
@@ -25,5 +28,4 @@ export class ViewSchedule implements OnInit {
       }
     });
   }
-
 }

@@ -1,7 +1,7 @@
-<h6 class="center-align">All Schedules</h6>
-<div class="content">
+<div class="content" *ngIf="allScheduleDates.length">
+  <h5 class="center-align">Upcoming Schedules</h5>
   <md-list>
-    <accordion *ngIf="allScheduleDates.length">
+    <accordion>
       <accordion-group *ngFor="let aDate of allScheduleDates">
         <accordion-heading>
           <md-list-item>
@@ -10,12 +10,17 @@
             <p md-line> {{allSchedules[aDate].length+' movies'}} </p>
           </md-list-item>
         </accordion-heading>
-        <md-list-item *ngFor="let aMovie of allSchedules[aDate]">
+        <md-list-item *ngFor="let aMovie of allSchedules[aDate]" class="each-schedule">
           <h4 md-line>{{aMovie.title}}</h4>
           <p md-line> {{aMovie.scheduleTime}}</p>
+          <clock [time]="aMovie.scheduleTime" [radius]="20"></clock>
         </md-list-item>
         <md-divider></md-divider>
       </accordion-group>
     </accordion>
   </md-list>
+</div>
+
+<div class="content" *ngIf="allScheduleDates.length === 0">
+  <p class="center-align">No upcoming schedule</p>
 </div>

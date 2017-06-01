@@ -15,6 +15,7 @@ import { MovieDetail } from './movie-detail/movie-detail.component';
 import { AddSchedule } from './schedule/add-schedule.component';
 import { ViewSchedule } from './view-schedule/view-schedule.component';
 import { StarRating } from './star-rating/star-rating.component';
+import { AnalogueClock } from './analogue-clock/analogue-clock';
 
 // pipe and filters
 import { TimeTransform } from './shared/time.pipe';
@@ -40,9 +41,10 @@ import { TimeTransform } from './shared/time.pipe';
         AddSchedule,
         ViewSchedule,
         StarRating,
+        AnalogueClock,
         TimeTransform
     ],
     bootstrap: [ MovieAppComponent ]
 })
 
-export class MovieAppModule{ };
+export class MovieAppModule { };
