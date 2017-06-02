@@ -1,13 +1,11 @@
 import {Component} from '@angular/core';
-import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 import {MovieService} from '../shared/movie-service';
 import {IAMovie} from '../shared/movie-interface';
 
 @Component({
   moduleId: module.id,
   templateUrl: 'add-schedule.html',
-  styleUrls: ['add-schedule.css'],
-  providers: [MdSnackBar]
+  styleUrls: ['add-schedule.css']
 })
 export class AddSchedule {
   movie: IAMovie;
@@ -15,11 +13,15 @@ export class AddSchedule {
   time: string;
   link: string;
 
-  constructor(private _movieService: MovieService, public _snackBar: MdSnackBar) {
+  constructor(private _movieService: MovieService) {
     this.movie = this._movieService.movie;
   }
 
   addToSchedule() {
+    if(!this.isFormValid()) {
+      this._movieService.showMessage("Time & date are compulsory");
+      return;
+    }
     // dates are used as the key, so to get movies in a day, you use the date as the key
     const detailsToSave = {
       title: this.movie.Title,
@@ -39,12 +41,10 @@ export class AddSchedule {
         this._movieService.setAlarm(detailsToSave);
       });
     });
-    this.openSnackBar();
+    this._movieService.showMessage("Movie successfully added");
   }
 
-  openSnackBar() {
-    let config = new MdSnackBarConfig();
-    config.duration = 2000;
-    this._snackBar.open("Movie successfully added", null, config);
+  isFormValid(): boolean {
+    return (this.time && this.date) ? true : false;
   }
 }
