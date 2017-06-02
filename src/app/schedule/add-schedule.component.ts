@@ -1,20 +1,21 @@
 import {Component} from '@angular/core';
+import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 import {MovieService} from '../shared/movie-service';
 import {IAMovie} from '../shared/movie-interface';
 
 @Component({
   moduleId: module.id,
   templateUrl: 'add-schedule.html',
-  styleUrls: ['add-schedule.css']
+  styleUrls: ['add-schedule.css'],
+  providers: [MdSnackBar]
 })
 export class AddSchedule {
   movie: IAMovie;
   date: string;
   time: string;
   link: string;
-  message: string;
 
-  constructor(private _movieService: MovieService) {
+  constructor(private _movieService: MovieService, public _snackBar: MdSnackBar) {
     this.movie = this._movieService.movie;
   }
 
@@ -38,10 +39,12 @@ export class AddSchedule {
         this._movieService.setAlarm(detailsToSave);
       });
     });
-    this.showConfirmation();
+    this.openSnackBar();
   }
 
-  showConfirmation(): void {
-    this.message = 'Movie successfully added';
+  openSnackBar() {
+    let config = new MdSnackBarConfig();
+    config.duration = 2000;
+    this._snackBar.open("Movie successfully added", null, config);
   }
 }
