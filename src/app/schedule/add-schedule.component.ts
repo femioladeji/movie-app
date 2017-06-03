@@ -18,6 +18,11 @@ export class AddSchedule {
   }
 
   addToSchedule() {
+    if(this.link && !/^https?:\/\/\w+/.test(this.link)) {
+      this._movieService.showMessage("Invalid streaming link");
+      return;
+    }
+
     if(!this.isFormValid()) {
       this._movieService.showMessage("Time & date are compulsory");
       return;
