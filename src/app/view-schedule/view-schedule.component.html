@@ -10,10 +10,11 @@
             <p md-line> {{allSchedules[aDate].length+' movies'}} </p>
           </md-list-item>
         </accordion-heading>
-        <md-list-item *ngFor="let aMovie of allSchedules[aDate]" class="each-schedule">
+        <md-list-item *ngFor="let aMovie of allSchedules[aDate]; let i = index" class="each-schedule">
           <h4 md-line>{{aMovie.title}}</h4>
           <p md-line> {{aMovie.scheduleTime}}</p>
           <clock [time]="aMovie.scheduleTime" [radius]="20"></clock>
+          <md-icon md-list-icon class="delete" title="Delete Schedule" (click)="deleteSchedule(i, aDate)"><i class="material-icons">delete_forever</i></md-icon>
         </md-list-item>
         <md-divider></md-divider>
       </accordion-group>

@@ -51,6 +51,12 @@ export class MovieService {
       { when: movieMoment });
   }
 
+  deleteAlarm(alarmDetails): void {
+    const { date, scheduleTime, id, title, link } = alarmDetails;
+    const movieMoment = new Date(`${date}T${scheduleTime}`).getTime();
+    chrome.alarms.clear(`movie-alarm-${movieMoment}@#${title}@#${link}@#${id}`);
+  }
+
   getTodaysMovies() {
     return new Promise((resolve) => {
       this.getAllSchedules().subscribe(
