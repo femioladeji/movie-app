@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../shared/movie-service';
 import { IMovies, IMovieResults } from '../shared/movie-interface';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providers: [MovieService]
 })
 
-export class MovieList {
+export class MovieList implements OnInit{
   title: string = 'Moviepedia';
   searchQuery: string;
   // the one below keeps track of the query that the result is displayed for
@@ -20,9 +20,18 @@ export class MovieList {
   totalPages: number;
   loading: boolean = false;
   currentPage: number = 1;
+  isOnline: boolean;
 
   constructor(private _movieService: MovieService, private _router: Router) {
 
+  }
+
+  ngOnInit() {
+    if(window.navigator.onLine) {
+      this.isOnline = true;
+    } else {
+      this.isOnline = false;
+    }
   }
 
   searchMovies(): void {
@@ -33,7 +42,8 @@ export class MovieList {
   }
 
   displayError(error: any): void {
-    console.log(error);
+    this.isOnline = true;
+    this.loading = false;
   }
 
   navigate(direction: string): void {

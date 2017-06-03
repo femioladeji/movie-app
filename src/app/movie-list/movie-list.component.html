@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="isOnline; else warning">
 
   <form class="search-form s12">
     <div class="each-row">
@@ -44,3 +44,5 @@
   <div id="loader" *ngIf='loading'><img src="img/3.gif" /></div>
 
 </div>
+
+<ng-template #warning><p class="center-align" style="margin-top: 135px">You need to be online to enjoy the full functionality of the extension. However, you can still modify your schedule</p></ng-template>
