@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MdInputModule, MdButtonModule, MdCardModule,
   MdMenuModule, MdIconModule, MdDatepickerModule, MdNativeDateModule,
-  MdListModule } from '@angular/material';
+  MdListModule, MdSnackBarModule } from '@angular/material';
 import { AccordionModule } from 'ngx-accordion';
 
 @NgModule({
@@ -14,7 +14,8 @@ import { AccordionModule } from 'ngx-accordion';
     MdDatepickerModule,
     MdNativeDateModule,
     MdListModule,
-    AccordionModule
+    AccordionModule,
+    MdSnackBarModule
   ],
   exports: [
     MdInputModule,
@@ -25,7 +26,8 @@ import { AccordionModule } from 'ngx-accordion';
     MdDatepickerModule,
     MdNativeDateModule,
     MdListModule,
-    AccordionModule
+    AccordionModule,
+    MdSnackBarModule
   ]
 })
 export class MovieMaterialModule { }

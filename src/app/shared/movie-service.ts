@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import {IMovieResults, IAMovie, IDaySchedule} from './movie-interface';
+import {MdSnackBar, MdSnackBarConfig} from '@angular/material';
 import 'rxjs/Operator/map';
 import { secret } from './secret';
 
@@ -10,7 +11,7 @@ export class MovieService {
   private _URL: string = `http://www.omdbapi.com/?apikey=${secret.API}&`;
   public movie: IAMovie;
 
-  constructor(private _http: Http) {
+  constructor(private _http: Http, private _snackBar: MdSnackBar) {
 
   }
 
@@ -50,6 +51,12 @@ export class MovieService {
       { when: movieMoment });
   }
 
+  deleteAlarm(alarmDetails): void {
+    const { date, scheduleTime, id, title, link } = alarmDetails;
+    const movieMoment = new Date(`${date}T${scheduleTime}`).getTime();
+    chrome.alarms.clear(`movie-alarm-${movieMoment}@#${title}@#${link}@#${id}`);
+  }
+
   getTodaysMovies() {
     return new Promise((resolve) => {
       this.getAllSchedules().subscribe(
@@ -85,5 +92,11 @@ export class MovieService {
       month = `0${mm}`;
     }
     return `${yyyy}-${month}-${date}`;
+  }
+
+  showMessage(message: string) {
+    let config = new MdSnackBarConfig();
+    config.duration = 2000;
+    this._snackBar.open(message, null, config);
   }
 }

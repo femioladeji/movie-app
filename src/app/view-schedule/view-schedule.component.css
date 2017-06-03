@@ -1,3 +1,7 @@
 .each-schedule:hover {
   background: #e8e8e8;
 }
+
+.delete {
+  cursor: pointer;
+}

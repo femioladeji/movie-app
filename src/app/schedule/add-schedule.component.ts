@@ -12,13 +12,16 @@ export class AddSchedule {
   date: string;
   time: string;
   link: string;
-  message: string;
 
   constructor(private _movieService: MovieService) {
     this.movie = this._movieService.movie;
   }
 
   addToSchedule() {
+    if(!this.isFormValid()) {
+      this._movieService.showMessage("Time & date are compulsory");
+      return;
+    }
     // dates are used as the key, so to get movies in a day, you use the date as the key
     const detailsToSave = {
       title: this.movie.Title,
@@ -38,10 +41,10 @@ export class AddSchedule {
         this._movieService.setAlarm(detailsToSave);
       });
     });
-    this.showConfirmation();
+    this._movieService.showMessage("Movie successfully added");
   }
 
-  showConfirmation(): void {
-    this.message = 'Movie successfully added';
+  isFormValid(): boolean {
+    return (this.time && this.date) ? true : false;
   }
 }

@@ -15,17 +15,39 @@ export class ViewSchedule implements OnInit {
   constructor(private _movieService: MovieService) {}
 
   ngOnInit(): void {
-    const today = this._movieService.getTodaysDate();
     this._movieService.getAllSchedules().subscribe(schedules => {
-      try {
-        this.allScheduleDates = Object.keys(schedules).filter((each) =>
-          each >= today
-        );
-        this.allSchedules = schedules;
-      } catch (err) {
-        this.allScheduleDates = [];
-        this.allSchedules = schedules;
-      }
+      this.updateMovieList(schedules);
     });
+  }
+
+  deleteSchedule(index: number, date: string): void {
+    this._movieService.getAllSchedules().subscribe(schedules => {
+      const theMovieDetails = schedules[date][index];
+      const dateSchedule = schedules[date];
+      dateSchedule.splice(index, 1);
+      schedules[date] = dateSchedule;
+      if(dateSchedule.length === 0) {
+        delete schedules[date];
+      }
+      chrome.storage.local.set({'movie-app-schedules': schedules});
+      // delete alarm
+      theMovieDetails['date'] = date;
+      this._movieService.deleteAlarm(theMovieDetails);
+      this.updateMovieList(schedules);
+      this._movieService.showMessage('Schedule deleted');
+    });
+  }
+
+  updateMovieList(schedules) {
+    const today = this._movieService.getTodaysDate();
+    try {
+      this.allScheduleDates = Object.keys(schedules).filter((each) =>
+        each >= today
+      );
+      this.allSchedules = schedules;
+    } catch (err) {
+      this.allScheduleDates = [];
+      this.allSchedules = schedules;
+    }
   }
 }
