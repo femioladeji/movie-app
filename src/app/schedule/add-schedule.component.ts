@@ -18,6 +18,11 @@ export class AddSchedule {
   }
 
   addToSchedule() {
+    if(this.link && !/^https?:\/\/\w+/.test(this.link)) {
+      this._movieService.showMessage("Invalid streaming link");
+      return;
+    }
+
     if(!this.isFormValid()) {
       this._movieService.showMessage("Time & date are compulsory");
       return;
@@ -39,6 +44,7 @@ export class AddSchedule {
       chrome.storage.local.set({'movie-app-schedules': allSchedules}, () => {
         detailsToSave['date'] = this.date;
         this._movieService.setAlarm(detailsToSave);
+        this.clearField();
       });
     });
     this._movieService.showMessage("Movie successfully added");
@@ -46,5 +52,11 @@ export class AddSchedule {
 
   isFormValid(): boolean {
     return (this.time && this.date) ? true : false;
+  }
+
+  clearField(): void {
+    this.time = '';
+    this.link = '';
+    this.date = '';
   }
 }
