@@ -16,6 +16,14 @@ form .col {
   overflow-y: scroll;
 }
 
+.pagination {
+  margin: 0 20px;
+}
+
+.pagination .page-nav {
+  min-width: 56px;
+}
+
 .each-movie {
   display: flex;
   margin-bottom: 20px;

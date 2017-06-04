@@ -24,19 +24,15 @@
         <div class="card-image">
           <img  src="{{aMovie.Poster}}">
         </div>
-        <!--<md-card-actions class="actions">-->
-          <!--<button md-button>SCHEDULE</button>-->
-          <!--<button md-button>LIKE</button>-->
-        <!--</md-card-actions>-->
       </md-card>
     </div>
     <div class="pagination">
       <span>Page {{currentPage}} of {{totalPages}}</span>
       <span>
-        <button md-raised-button *ngIf='currentPage>1' title="First" class="btn waves-effect waves-light" (click)='navigate("first")'><i class="material-icons">first_page</i></button>
-        <button md-raised-button *ngIf='currentPage>1' title="Previous" class="btn waves-effect waves-light" (click)='navigate("prev")'><i class="material-icons">navigate_before</i></button>
-        <button md-raised-button *ngIf='currentPage<totalPages' title="Next" class="btn waves-effect waves-light" (click)='navigate("next")'><i class="material-icons">navigate_next</i></button>
-        <button md-raised-button *ngIf='currentPage<totalPages' title="Last" class="btn waves-effect waves-light" (click)='navigate("last")'><i class="material-icons">last_page</i></button>
+        <button md-raised-button *ngIf='currentPage>1' title="First" class="page-nav btn waves-effect waves-light" (click)='navigate("first")'><i class="material-icons">first_page</i></button>
+        <button md-raised-button *ngIf='currentPage>1' title="Previous" class="page-nav btn waves-effect waves-light" (click)='navigate("prev")'><i class="material-icons">navigate_before</i></button>
+        <button md-raised-button *ngIf='currentPage<totalPages' title="Next" class="page-nav btn waves-effect waves-light" (click)='navigate("next")'><i class="material-icons">navigate_next</i></button>
+        <button md-raised-button *ngIf='currentPage<totalPages' title="Last" class="page-nav btn waves-effect waves-light" (click)='navigate("last")'><i class="material-icons">last_page</i></button>
       </span>
     </div>
   </div>
