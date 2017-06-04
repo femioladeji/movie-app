@@ -28,7 +28,7 @@ export class MovieDetail implements OnInit {
             this.aMovie = theMovie
         }, (error) => {
             this.loading = false;
-            console.log(error);
+            this._movieService.showMessage("Please check your internet");
         });
     }
 

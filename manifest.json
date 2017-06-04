@@ -1,15 +1,15 @@
 {
   "manifest_version": 2,
   "name"            : "Moviepedia",
-  "description"     : "A chrome extension developed with angular2 that consumes omdb api to make movie search, scheduling and streaming a lot more fun",
+  "description"     : "This extension is tailored towards ensuring that you relax and entertain yourself by scheduling movies for view and get reminded once it's time to relax",
   "short_name"      : "moviepedia",
-  "version"         : "0.1",
+  "version"         : "1.0",
   "browser_action": {
     "default_popup": "index.html",
-    "default_icon" : "img/logo.png"
+    "default_icon" : "assets/img/logo.png"
   },
   "background": {
-    "scripts": ["js/notifications.js"],
+    "scripts": ["assets/js/notifications.js"],
     "persistent": false
   },
   "permissions": [

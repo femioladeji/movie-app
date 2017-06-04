@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MovieMaterialModule } from './material-module';
 
 // components
-import { MovieAppComponent } from './movie-app.component';
+import { MovieAppComponent } from './app.component';
 import { MovieList } from './movie-list/movie-list.component';
 import { MovieDetail } from './movie-detail/movie-detail.component';
 import { AddSchedule } from './schedule/add-schedule.component';

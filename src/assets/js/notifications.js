@@ -1,7 +1,7 @@
 let notificationId, imdbId, link;
 
 function playNotificationSound() {
-  let notify = new Audio('audio/notification.ogg');
+  let notify = new Audio('../assets/audio/notification.ogg');
   notify.play();
 }
 
@@ -14,13 +14,13 @@ chrome.alarms.onAlarm.addListener(data => {
       type: "basic",
       title: "MOVIE TIME",
       message: `Time has come to relax with ${movieDetails[1]}`,
-      iconUrl: "img/logo.png"
+      iconUrl: "assets/img/logo.png"
     };
     if (link && link.trim() !== 'undefined' && link.trim() !== '') {
       console.log(link);
       alarmObject['buttons'] = [{
         title: "Watch",
-        iconUrl: "img/theater.png"
+        iconUrl: "assets/img/theater.png"
       }];
     }
     chrome.notifications.create(alarmObject, (id) => {
