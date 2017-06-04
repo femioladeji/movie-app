@@ -1,8 +1,0 @@
-Users should be able to schedule a movie for view
-View upcoming schedule
-Favorite movies
-unfavorite a movie
-reschedule
-get alerted when the movie time is near
-Sync with google calendar
-implement a good display of rating

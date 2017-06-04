@@ -3,9 +3,9 @@ import {MovieService} from './shared/movie-service';
 
 @Component({
   moduleId: module.id,
-  selector: 'movie-app-app',
-  templateUrl: 'movie-app.component.html',
-  styleUrls: ['movie-app.component.css'],
+  selector: 'app-movie',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.css'],
   providers: [MovieService]
 })
 

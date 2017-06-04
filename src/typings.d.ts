@@ -1,4 +1,6 @@
-/// <reference path="../typings/browser.d.ts" />
-/// <reference path="../typings/chrome.d.ts" />
+/* SystemJS module definition */
 
-declare var module: { id: string };
+declare var module: NodeModule;
+interface NodeModule {
+  id: string;
+}
