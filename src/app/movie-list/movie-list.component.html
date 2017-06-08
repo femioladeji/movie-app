@@ -38,7 +38,7 @@
   </div>
 
   <div id="loader" *ngIf='loading'><img src="../assets/img/3.gif" /></div>
-
+  <div *ngIf='!loading && searchedQuery' class="center-align">No movie was found to match to your search "{{searchedQuery}}"</div>
 </div>
 
 <ng-template #warning><p class="center-align" style="margin-top: 135px">You need to be online to enjoy the full functionality of the extension. However, you can still modify your schedule</p></ng-template>
